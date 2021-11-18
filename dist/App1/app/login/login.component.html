@@ -1,0 +1,50 @@
+
+<div class="row" id="lg_top">
+  <img src="assets/img/logo1.png" id="lg_img" />
+</div>
+  <div class="row">
+    <div class="col-lg-4 col-md-4 col-sm-3 col-xs-2"></div>
+      <div class="col-lg-3 col-md-4 col-sm-6 col-xs-8">
+        <h1 id="lg_h1">
+            Welcome Back !
+        </h1>
+        <p id="lg_txt1">
+          Sign in using your credentials and <br> start  using Chat FLicker 
+        </p>
+       
+        <div >
+          <div class="alert alert-danger reg_show" *ngIf="msg1" role="alert">
+            {{msg1}}
+            </div>
+          <form (ngSubmit)="onSubmit(form)" #form="ngForm" style="padding-top: 20px !important;">
+     
+        <p  style="text-align: center;" class="box_1">
+          <i class="fa fa-envelope-o icon" style="font-size:36px"></i>
+          <input type="email" placeholder="Email" id="fld_1"  name="Admin_Email" ngModel #admin_email />
+</p>
+   
+        <p style="text-align: center; margin-top: 15px !important;" class="box_1" >
+
+
+          <i class="fa fa-key icon" style="font-size:36px"></i>
+          <input placeholder="password" type="password" name="Admin_Password" id="fld_1"  ngModel #admin_pass/>
+
+          
+
+        </p>
+        
+    <a routerLink='/forget'><p  style="color: #a6a0a2; font-size: 18px;padding-top: 20px !important;text-align: center;">Forgot Password ?</p></a>
+      
+        <p style="text-align: center;">
+        <button mat-raised-button color="primary" id="reg_btn" type="submit">SIGN IN</button>
+  
+          </p>
+          </form>
+      </div>
+      <h6 id="lg_OR">
+        OR
+    </h6>
+<p style="color: rgb(167, 140, 140);text-align: center;">Don't have an account? <span style="color: #041193 !important; font-size: 15px;"><a routerLink="/register" style="color: #041193 !important; font-size: 15px;">Create New</a></span></p>
+
+      </div>
+    </div>

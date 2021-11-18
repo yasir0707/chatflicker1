@@ -1,0 +1,294 @@
+  <ng-template #content let-modal>
+ 
+    <form (ngSubmit)="onSubmit2(form)" #form="ngForm" enctype='multipart/form-data'>
+    <div class="modal-header">
+      <h4 class="modal-title">Modal title</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="row" *ngFor="">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+          <div class="progress">
+            <div class="progress-bar bg-success" style="width: 20%;color:green">
+    
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <button type="button" class="btn btn-success">Upload</button>
+          <button type="button" class="btn btn-danger">Cancel</button>
+        </div>
+      </div>
+      <div >
+        <input  type="file" name="file"   multiple (change)="selectMultiple($event)" /><br>
+        <input type="text" class="form-control" id="adinmsg1" autocomplete="off"  name="usermsg" ngModel aria-describedby="emailHelp" placeholder="Text your message">
+      
+      </div>
+   
+    </div>
+  </div>
+    </div>
+    <div class="modal-footer">
+      <button mat-raised-button color="primary" id="reg_btn2" type="submit"> send </button>
+         </div>
+  </form>  
+  </ng-template>
+  
+  
+  <button *ngIf="admin_status != 0" mat-stroked-button color="blue" matBadge="{{admin_status}}" matBadgeColor="warn" [hidden]="cht_shw" (click)="cht_shw = !cht_shw ; cht_box = !cht_box" id="cht_button" (click)="chat_status()">Chat</button>
+  <button *ngIf="admin_status == 0" mat-stroked-button color="blue" [hidden]="cht_shw" (click)="cht_shw = !cht_shw ; cht_box = !cht_box" id="cht_button" (click)="chat_status()">Chat</button>
+
+
+
+ <div class="col-lg-3 col-md-6 col-sm-4 col-xs-8 fixed_box" [hidden]="check_user">
+    <mat-card class="example-card" [hidden]="cht_box">
+        <div id="cht_head"><p id="cht_p">Chat </p> 	<mat-icon (click)="cht_shw = !cht_shw ; cht_box = !cht_box" id="mini">minimize</mat-icon></div>
+        <div id="row usr_head">
+          <div class="col-lg-3">
+            <img src="assets/img/lg1.png" />
+            
+          
+          </div>
+          <div class="col-lg-8 usr_nmtxt">
+            <p id="usr_name" *ngIf="adminemail != null">{{adminemail}}</p>
+             <p id="usr_name" *ngIf="admin_show_email == null">Unknown</p>
+            <p id="usr_txt">Ask you Anything</p>
+          </div>
+          <div class="usr_line">
+    
+          </div>
+    
+        </div>
+        <mat-card-content>
+            <form (ngSubmit)="onSubmit(form)" #form="ngForm" >
+                <p style="text-align: center;">
+                  <mat-form-field appearance="standard"  style="background-color: #e9e9e9;padding: 10px;width: 250px;height: 65px;">
+                    
+                  <mat-icon matSuffix style="color: black">sentiment_very_satisfied</mat-icon>
+                    <mat-label style="color: black">Name</mat-label>
+                    <input matInput placeholder="Name" style="color: #2b3ce1 ;"   name="username"  ngModel #admin_name>
+                    
+                  </mat-form-field>
+                </p >
+                <p style="text-align: center;">
+                  <mat-form-field appearance="standard"  style="background-color: #e9e9e9;padding: 10px;width: 250px;height: 65px;">
+                    
+                  <mat-icon matSuffix style="color: black">email</mat-icon>
+                    <mat-label style="color: black">Email</mat-label>
+                    <input matInput placeholder="Enter your Email"  style="color: #2b3ce1 !important ;"  name="useremail" ngModel #admin_email>
+                    
+                  </mat-form-field>
+                </p>
+                <!-- <input  type="hidden"  placeholder="Enter your Email"  style="color: #2b3ce1 !important ;"  name="admin_email" ngModel #admin_email> -->
+                   
+                <p style="text-align: center;">
+                  <mat-form-field appearance="standard"  style="background-color: #e9e9e9;padding: 10px;width: 250px;height: 65px;">
+                    
+                  <mat-icon matSuffix style="color: black">card_travel</mat-icon>
+                    <mat-label style="color: black">Message</mat-label>
+                    <input matInput placeholder="Enter your Email"  style="color: #2b3ce1 ;"  name="usermsg"  ngModel #admin_company>
+                    
+                  </mat-form-field>
+                </p>
+              
+               
+                <p style="text-align: center;">
+                <button mat-raised-button color="primary" id="reg_btn" type="submit">SEND</button>
+          
+                  </p>
+                  </form>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button>LIKE</button>
+          <button mat-button>SHARE</button>
+        </mat-card-actions>
+      </mat-card>
+
+
+
+
+    <!-- <div id="fixed_chat" [hidden]="check_user1" >
+      <mat-card class="example-card" [hidden]="cht_box">
+        <p id="cht_head">Chat 	<mat-icon (click)="cht_shw = !cht_shw ; cht_box = !cht_box" id="mini">minimize</mat-icon> </p>
+        <mat-card-header>
+      
+            <mat-card-subtitle></mat-card-subtitle>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title (click)="cht_shw = !cht_shw ; cht_box = !cht_box">Shiba Inu</mat-card-title>
+          <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <form (ngSubmit)="onSubmit1(form1)" #form1="ngForm" >
+             
+              <mat-chip-list aria-label="Fish selection" *ngFor="let e of dataChat">
+
+                <mat-chip color="primary" selected *ngIf="e.useremail == u_email && e.usermsg != null" >{{e.usermsg}}</mat-chip>
+                <mat-chip color="accent" id="adminmsg" selected *ngIf="e.useremail == u_email && e.adminmsg != null" >{{e.adminmsg}}</mat-chip>
+              </mat-chip-list>
+               <p style="text-align: center;">
+                  <mat-form-field appearance="standard"  style="background-color: #e9e9e9;padding: 10px;width: 250px;height: 65px;">
+                    
+                  <mat-icon matSuffix style="color: black">card_travel</mat-icon>
+                    <mat-label style="color: black">Message</mat-label>
+                    <input matInput placeholder="Enter your Email"  style="color: #2b3ce1 ;"  name="usermsg"  ngModel #admin_company>
+                    
+                  </mat-form-field>
+                </p>
+              
+               
+                <p style="text-align: center;">
+                <button mat-raised-button color="primary" id="reg_btn" type="submit">SEND</button>
+          
+                  </p>
+                  </form>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button>LIKE</button>
+          <button mat-button>SHARE</button>
+        </mat-card-actions>
+      </mat-card>
+    </div> -->
+      <!-- <div class="col-lg-3">
+          <p>
+            Pakistan,[c] officially the Islamic Republic of Pakistan,[d] is a country in South Asia. It is the world's fifth-most populous country, with a population exceeding 225.2 million, and has the world's second-largest Muslim population. Pakistan is the 33rd-largest country by area, spanning 881,913 square kilometres (340,509 square miles). It has a 1,046-kilometre (650-mile) coastline along the Arabian Sea and Gulf of Oman in the south, and is bordered by India to the east, Afghanistan to the west, Iran to the southwest, and China to the northeast. It is separated narrowly from Tajikistan by Afghanistan's Wakhan Corridor in the north, and also shares a maritime border with Oman.
+
+            Pakistan is the site of several ancient cultures, including the 8,500-year-old Neolithic site of Mehrgarh in Balochistan,[13] and the Indus Valley Civilisation of the Bronze Age, the most extensive of the civilisations of the Old World.[14][15] The region that comprises the modern state of Pakistan was the realm of multiple empires and dynasties, including the Achaemenid; briefly that of Alexander the Great; the Seleucid, the Maurya, the Kushan, the Gupta;[16] the Umayyad Caliphate in its southern regions, the Hindu Shahi, the Ghaznavids, the Delhi Sultanate, the Mughals,[17] the Durranis, the Sikh Empire, British East India Company rule, and most recently, the British Indian Empire from 1858 to 1947.
+            
+            Spurred by the Pakistan Movement, which sought a homeland for the Muslims of British India, and election victories in 1946 by the All-India Muslim League, Pakistan gained independence in 1947 after the Partition of the British Indian Empire, which awarded separate statehood to its Muslim-majority regions and was accompanied by an unparalleled mass migration and loss of life.[18][19] Initially a Dominion of the British Commonwealth, Pakistan officially drafted its constitution in 1956, and emerged as a declared Islamic republic. In 1971, the exclave of East Pakistan seceded as the new country of Bangladesh after a nine-month-long civil war. In the following four decades, Pakistan has been ruled by governments whose descriptions, although complex, commonly alternated between civilian and military, democratic and authoritarian, relatively secular and Islamist.[20] Pakistan elected a civilian government in 2008, and in 2010 adopted a parliamentary system with periodic elections.[21][22]
+            
+            Pakistan is a middle power, and has the world's sixth-largest standing armed forces. It is a declared nuclear-weapons state, and is ranked amongst the emerging and growth-leading economies,[23][24] with a large and rapidly-growing middle class.[25][26] Pakistan's political history since independence has been characterized by periods of significant economic and military growth as well those of political and economic instability. It is an ethnically and linguistically diverse country, with similarly diverse geography and wildlife. However, the country continues to face challenges, including poverty, illiteracy, corruption and terrorism.[27][28][29] Pakistan is a member of the United Nations, the Shanghai Cooperation Organisation, the Organisation of Islamic Cooperation, the British Commonwealth of Nations, the South Asian Association for Regional Cooperation, the Islamic Military Counter-Terrorism Coalition, and is designated as a major non-NATO ally by the United States.
+          </p>
+      </div> -->
+</div>
+<!-- 
+<div class="col-lg-2 fixed_box" [hidden]="check_user1">
+  <mat-card class="example-card1" [hidden]="cht_box">
+ 
+    <div id="cht_head1"><p id="cht_p">Chat </p>	<mat-icon (click)="cht_shw = !cht_shw ; cht_box = !cht_box" id="mini">minimize</mat-icon> </div>
+  
+ 
+      <mat-card-content>
+        <div class="scrl">
+   <div  *ngFor="let e of dataChat;index as i"  >
+      <mat-chip color="primary" id="usermsg" selected  *ngIf="e.useremail == u_email && e.usermsg != null" >{{e.usermsg}}</mat-chip>
+             <div *ngIf="e.useremail == u_email && e.adminmsg != null"  id="adminmsg_box"> 
+                           <mat-chip color="accent" id="adminmsg" selected *ngIf="e.useremail == u_email && e.adminmsg != null" >{{e.adminmsg}}</mat-chip>
+             </div> 
+   
+   </div>
+  </div>
+  </mat-card-content>
+          <mat-chip-list>
+        
+            </mat-chip-list>
+         
+      <mat-card-actions>
+        <form (ngSubmit)="onSubmit1(form)" #form="ngForm" >
+           
+       
+          <div class="vrt_line"></div> 
+          
+            <div class="form-group">
+              <input type="email" class="form-control" id="adinmsg" autocomplete="off"  name="usermsg" ngModel aria-describedby="emailHelp" placeholder="Text your message">
+              <button mat-raised-button color="primary" id="reg_btn1" type="submit"> <mat-icon matSuffix style="color: black" >send  </mat-icon></button>
+           
+            </div>
+        <p style="text-align: center;">
+
+            </p>
+            </form>
+      </mat-card-actions>
+    </mat-card>
+  
+  </div> -->
+
+
+  
+  <div class="col-lg-3 col-md-6 col-sm-4 col-xs-8 fixed_box1"  [hidden]="check_user1">
+    <mat-card class="example-card1"  [hidden]="cht_box">
+     <div id="cht_head1" (click)="cht_box = !cht_box ; cht_shw = !cht_shw">
+      <p id="cht_para">Chat</p>
+      <mat-icon  id="mini">minimize <p>-</p></mat-icon> 
+    </div>
+    <div id="row usr_head">
+      <div class="col-lg-3">
+        <img src="assets/img/lg1.png" />
+        
+      
+      </div>
+      <div class="col-lg-8 usr_nmtxt">
+        <p id="usr_name" *ngIf="adminemail != null">{{adminemail}}</p>
+         <p id="usr_name" *ngIf="admin_show_email == null">Unknown</p>
+        <p id="usr_txt">Ask you Anything</p>
+      </div>
+      <div class="usr_line">
+
+      </div>
+
+    </div>
+    <!-- *ngIf = "e.useremail == user_email && " -->
+    <!-- *ngIf = "e.useremail == user_email &&  e.adminmsg != null && e.adminmsg"  -->
+    <!-- *ngIf = "e.useremail == user_email &&  e.adminmsg != null && e.adminmsg"  -->
+        <mat-card-content>
+          <div class="scrl">
+     <div  *ngFor="let e of user_msg1?.slice()?.reverse();index as i"  >
+        <mat-chip color="primary" id="usermsg" selected *ngIf ="e.user_msg != null && e.user_msg != emp_msg"  >{{e.user_msg}}</mat-chip>
+        <a ><mat-chip color="primary" id="usermsg"  selected *ngIf = "  e.user_originalname!= null && e.user_originalname" >{{e.user_originalname}}</mat-chip></a>
+     
+        <div  id="adminmsg_box" *ngIf="e.admin_msg != null && e.admin_msg"> 
+                          
+                <mat-chip color="accent" id="adminmsg" selected >{{e.admin_msg}}</mat-chip>
+
+                <!-- <a ><mat-chip color="accent" id="adminmsg" (click)="download(e.imgname)" selected *ngIf = "  e.admin_originalname!= null && e.admin_originalname" >{{e.admin_originalname}}</mat-chip></a> -->
+                          </div> 
+                          <a ><mat-chip color="accent" id="adminmsg"  selected *ngIf = "  e.admin_originalname!= null && e.admin_originalname" >{{e.admin_originalname}}</mat-chip></a>
+
+     </div>
+    </div>
+    </mat-card-content>
+            <mat-chip-list>
+              <!-- <span class="badge badge-pill badge-primary" *ngIf = "e.useremail == user_email && e.usermsg != null" >{{e.usermsg}}</span>
+              <span class="badge badge-pill badge-info" *ngIf = "e.useremail == user_email &&  e.adminmsg != null" id="adminmsg" >{{e.adminmsg}}</span> -->
+                <!-- <mat-chip color="primary" selected *ngIf = "e.useremail == user_email && e.usermsg != null" >{{e.usermsg}}</mat-chip>
+                
+                <mat-chip color="accent" id="adminmsg" selected *ngIf = "e.useremail == user_email &&  e.adminmsg != null">{{e.adminmsg}}</mat-chip> -->
+            
+              </mat-chip-list>
+           
+        <mat-card-actions>
+          <form (ngSubmit)="onSubmit1(form1)" #form1="ngForm" enctype='multipart/form-data'>
+             
+         
+            <div class="vrt_line"></div> 
+           
+              <div class="form-group">
+                <!-- <input type="file" name="file" multiple (change)="selectMultiple($event)" placeholder="multiple"/>
+                
+                <input type="file" name="file" multiple (change)="selectImage($event)" /> -->
+                <button mat-button (click)="openVerticallyCentered(content)"><mat-icon   style="color:black;margin-top: 15px;">link</mat-icon></button>
+                <input type="text" class="form-control" id="adinmsg" autocomplete="off"  name="usermsg" ngModel aria-describedby="emailHelp" placeholder="Text your message">
+                <button mat-raised-button color="primary" id="reg_btn1" type="submit"> <mat-icon matSuffix style="color: black" >send  </mat-icon></button>
+                
+              </div>
+              
+               
+              
+      
+          
+           
+            <p style="text-align: center;">
+          
+               
+     
+              </p>
+              </form>
+        </mat-card-actions>
+      </mat-card>
+    
+    </div>

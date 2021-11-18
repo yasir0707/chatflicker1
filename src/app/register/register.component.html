@@ -1,0 +1,137 @@
+
+<div class="row" id="lg_top">
+  <img src="assets/img/logo1.png" id="lg_img" />
+</div>
+
+<div class="row">
+  <div class="col-lg-4"></div>
+    <div class="col-lg-3" [hidden]="reg_box">
+      <h1 style="color:#041193 ;font-weight: bold;text-align: center;    font-size: 30px;
+      padding-top: 30px!important;">
+          Create Account
+      </h1>
+      <p style="text-align: center;color: #9a9797; padding-top: 10px!important;">
+        Sign Up right now and boost your sales with <br> Seller Optics 
+      </p>
+     
+      <div>
+        <div class="alert alert-danger reg_show" *ngIf="Reg_Show" role="alert">
+        {{Reg_Show}}
+        </div>
+        <div id="load"> 
+
+          <div class="spinner-border text-primary" [hidden]="load" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+        </div>
+        <form (ngSubmit)="onSubmit(form)" #form="ngForm">
+   
+      <p  style="text-align: center;" class="box_1">
+        <i class="fa  fa-user-o icon" style="font-size:30px"></i>
+        <input id="fld_1" type="text" placeholder="Name"    name="Admin_Name" pattern="[a-zA-Z ]*" required  ngModel #admin_name />
+
+      
+      </p>
+  
+      <p  style="text-align: center;" class="box_1">
+        <i class="fa fa-envelope-o icon" style="font-size:30px"></i>
+        <input id="fld_1" type="email"  placeholder=" Email"   name="Admin_Email" ngModel #admin_email />
+
+      
+      </p>
+   
+      <p  style="text-align: center;" class="box_1">
+        <i class="fa fa-briefcase icon" style="font-size:30px"></i>
+        <input id="fld_1" type="text"  placeholder="Company"  style="color: #2b3ce1 ;"  name="Admin_Company"  ngModel #admin_company />
+
+      
+      </p>
+  
+      <p  style="text-align: center;" class="box_1">
+        <i class="fa fa-phone icon" style="font-size:30px"></i>
+        <input id="fld_1" type="number"  placeholder="Number" name="Admin_Number"   ngModel #admin_numb />
+
+      </p>
+   
+      <p  style="text-align: center;" class="box_1">
+        <i class="fa fa-key icon" style="font-size:30px"></i>
+        <input id="fld_1" type="password"  placeholder="Password"  name="Admin_Password" ngModel #admin_pass />
+
+      </p>
+
+      <p  style="text-align: center;" class="box_1">
+        <i class="fa fa-key icon" style="font-size:30px"></i>
+        <input id="fld_1" type="password"  placeholder="Confirm Password"  name="Admin_CPassword" ngModel/>
+
+      </p>
+      <p style="text-align: center;">
+      <button mat-raised-button color="primary" id="reg_btn"  type="submit">REGISTER</button>
+
+        </p>
+        </form>
+    </div>
+    <h6 id="lg_OR">
+      OR
+  </h6>
+<p style="color: rgb(167, 140, 140);text-align: center;">Don't have an account? <span style="color: blue; font-size: 15px;"><a routerLink="/login">SIGN IN</a></span></p>
+
+ 
+    </div>
+  </div>
+
+<!-- <form (ngSubmit)="onSubmit(form)" #form="ngForm">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="inputEmail1">Name</label>
+            <input type="text" class="form-control" id="inputEmail4" placeholder="Name" name="Admin_Name"  ngModel #admin_name>
+          </div> <div class="form-group col-md-6">
+            <label for="inputEmail2">Company Name</label>
+            <input type="text" class="form-control" id="inputEmail4" placeholder="Company Name" name="Admin_Company" ngModel #admin_company>
+          </div>
+      <div class="form-group col-md-6">
+        <label for="inputEmail3">Email</label>
+        <input type="email" class="form-control" id="inputEmail4" placeholder="Email" name="Admin_Email" ngModel #admin_email>
+      </div>
+      
+      <div class="form-group col-md-6">
+        <label for="inputEmail4">Number</label>
+        <input type="number" class="form-control" id="inputEmail4" placeholder="Number" name="Admin_Number"  ngModel #admin_numb>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputPassword4">Password</label>
+        <input type="password" class="form-control" id="inputPassword4" placeholder="Password" name="Admin_Password" ngModel #admin_pass>
+      </div>
+    </div>
+   
+    <button type="submit" class="btn btn-primary">{{editMode? 'Update':'Add'}}</button>
+  </form> -->
+
+<!-- 
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Number</th>
+        <th>Email</th>
+        <th>Company</th>
+        <th>Password</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let e of Reg;index as i">
+        <td>{{e._id}}</td>
+        <td>{{e.Admin_Name}}</td>
+        <td>{{e.Admin_Number}}</td>
+        <td>{{e.Admin_Email}}</td>
+        <td>{{e.Admin_Company}}</td>
+        <td>{{e.Admin_Password}}</td>
+        <td><Button class="btn btn-success" (click)="update(e,e._id)">Update</Button></td>
+        <td><button class="btn btn-danger" (click)="Delete(e._id)">Delete</button></td>
+      </tr>
+    </tbody>
+  </table> -->
+  <div *ngIf = "isEditable">
+  <app-verify  [VerifyMsg]="RegMsg"></app-verify>
+</div>

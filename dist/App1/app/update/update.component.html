@@ -1,0 +1,82 @@
+<div class="row">
+    <div class="col-lg-4"></div>
+      <div class="col-lg-3">
+        <h1 style="color:#2b3ce1 ;font-weight: bold;text-align: center;font-size: 35px;">
+            Update Account
+        </h1>
+        <p style="text-align: center;color: black;">
+          Sign Up right now and boost your sales with <br> Seller Optics 
+        </p>
+       
+        <div >
+          <form (ngSubmit)="onSubmit(form)" #form="ngForm">
+        <p style="text-align: center;">
+          <mat-form-field appearance="standard"  style="background-color: #e9e9e9;padding: 10px;width: 250px;height: 65px;">
+            
+          <mat-icon matSuffix style="color: black">sentiment_very_satisfied</mat-icon>
+            <mat-label style="color: black">Name</mat-label>
+            <input matInput placeholder="Name" style="color: #2b3ce1 ;"   name="Admin_Name"  ngModel #admin_name>
+            
+          </mat-form-field>
+        </p >
+        <p style="text-align: center;">
+          <mat-form-field appearance="standard"  style="background-color: #e9e9e9;padding: 10px;width: 250px;height: 65px;">
+            
+          <mat-icon matSuffix style="color: black">email</mat-icon>
+            <mat-label style="color: black">Email</mat-label>
+            <input matInput placeholder="Enter your Email"  style="color: #2b3ce1 !important ;"  name="Admin_Email" ngModel #admin_email>
+            
+          </mat-form-field>
+        </p>
+        <p style="text-align: center;">
+          <mat-form-field appearance="standard"  style="background-color: #e9e9e9;padding: 10px;width: 250px;height: 65px;">
+            
+          <mat-icon matSuffix style="color: black">card_travel</mat-icon>
+            <mat-label style="color: black">Company</mat-label>
+            <input matInput placeholder="Enter your Email"  style="color: #2b3ce1 ;"  name="Admin_Company"  ngModel #admin_company>
+            
+          </mat-form-field>
+        </p>
+        <p style="text-align: center;">
+          <mat-form-field appearance="standard"  style="background-color: #e9e9e9;padding: 10px;width: 250px;height: 65px;">
+            
+          <mat-icon matSuffix style="color: black">phone</mat-icon>
+            <mat-label style="color: black">Number</mat-label>
+            <input matInput placeholder="Placeholder"  style="color: #2b3ce1 ;"   name="Admin_Number"   ngModel #admin_numb>
+            
+          </mat-form-field>
+    
+        </p>
+        <p style="text-align: center;">
+          <mat-form-field appearance="standard"  style="background-color: #e9e9e9;padding: 10px;width: 250px;height: 65px;">
+            
+          <mat-icon matSuffix style="color: black">vpn_key</mat-icon>
+            <mat-label style="color: black">Password</mat-label>
+            <input matInput placeholder="Placeholder"  style="color: #2b3ce1 ;"  name="Admin_Password" ngModel #admin_pass>
+            
+          </mat-form-field>
+          
+        </p>
+        <p style="text-align: center;">
+          <mat-form-field appearance="standard"  style="background-color: #e9e9e9;padding: 10px;width: 250px;height: 65px;">
+            
+          <mat-icon matSuffix style="color: black">vpn_key</mat-icon>
+            <mat-label style="color: black">Confirm Password</mat-label>
+            <input matInput placeholder="Placeholder"  style="color: #2b3ce1 ;">
+            
+          </mat-form-field>
+          
+        </p>
+        <p style="text-align: center;">
+        <button mat-raised-button color="primary" id="reg_btn" type="submit">REGISTER</button>
+  
+          </p>
+          </form>
+      </div>
+      
+  <p style="color: rgb(167, 140, 140);text-align: center;">Don't have an account? <span style="color: blue; font-size: 15px;"><a routerLink="/login">SIGN IN</a></span></p>
+  
+   
+      </div>
+    </div>
+  

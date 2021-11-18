@@ -1,0 +1,29 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  table {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+#lg_h1{
+  color: #041193;
+  font-weight: bold;
+  text-align: center;
+  padding: 50px 0px 0px 0px !important;
+  font-size: 35px;
+}
+#reg_btn{
+  /* width: 300px; */
+  height: 50px;
+  background-color: #041193 !important;
+  font-size: 22px !important;
+  margin-top: 10px !important;
+}

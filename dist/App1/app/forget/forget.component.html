@@ -1,0 +1,109 @@
+
+<div class="row" id="lg_top">
+    <img src="assets/img/logo1.png" id="lg_img" />
+  </div>
+    <div class="row" [hidden]="chck" >
+      <div class="col-lg-4 col-md-4 col-sm-3 col-xs-2"></div>
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-8">
+          <h1 id="lg_h1">
+              Forgot Password
+          </h1>
+          <p id="lg_txt1">
+           We've got you covered just enter <br> your email and we'll send you a 
+           <br>password reset link to regain access <br> to your  account
+
+          </p>
+         
+          <div >
+              <!-- <h2>{{msg1}}</h2> -->
+            <form (ngSubmit)="onSubmit(form)" #form="ngForm">
+       
+          <p  style="text-align: center;" class="box_1">
+            <i class="fa fa-envelope-o icon" style="font-size:36px"></i>
+            <input type="email" placeholder="Email" id="fld_1"  name="Admin_Email" ngModel #admin_email />
+  
+          
+          </p>
+          <p style="text-align: center;">
+          <button mat-raised-button color="primary" id="reg_btn" type="submit" >SEND EMAIL</button>
+    
+            </p>
+            </form>
+        </div>
+        <h6 id="lg_OR">
+          OR
+      </h6>
+  <p style="color: rgb(167, 140, 140);text-align: center;">Back to <span style="color: #041193 !important; font-size: 15px;"><a routerLink="/login" style="color: #041193 !important; font-size: 15px;">Sign in</a></span></p>
+  
+        </div>
+      </div>
+      <div class="row" [hidden]="v_chck">
+        <div class="col-lg-4 col-md-4 col-sm-3 col-xs-2"></div>
+          <div class="col-lg-3 col-md-4 col-sm-6 col-xs-8">
+            <h1 id="lg_h1">
+                Verify Email
+            </h1>
+            <p id="lg_txt1">
+             We've got you covered just enter <br> your email and we'll send you a 
+             <br>password reset link to regain access <br> to your  account
+  
+            </p>
+           
+            <div >
+                <h2 style="color: black; font-size: 20px;">{{Show_msg}}</h2>
+              <form (ngSubmit)="onSubmit1(form1)" #form1="ngForm">
+                
+            <p  style="text-align: center;" class="box_1">
+              <i class="fa fa-envelope-o icon" style="font-size:36px"></i>
+              <input type="number" placeholder="Verify Code" id="fld_1"  name="Admin_Code" ngModel #admin_code />
+    
+            
+            </p>
+            <p style="text-align: center;">
+            <button mat-raised-button color="primary" id="reg_btn" type="submit" >Verify Code</button>
+      
+              </p>
+              </form>
+          </div>
+          <h6 id="lg_OR">
+            OR
+        </h6>
+    <p style="color: rgb(167, 140, 140);text-align: center;">Change <span style="color: #041193 !important; font-size: 15px;"><a (click)="chck = true" style="color: #041193 !important; font-size: 15px;">Email</a></span></p>
+    
+          </div>
+        </div>
+        <div class="row" [hidden] = "u_check">
+          <div class="col-lg-4 col-md-4 col-sm-3 col-xs-2"></div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-8">
+              <h1 id="lg_h1">
+                  Update Password
+              </h1>
+              <p id="lg_txt1">
+               We've got you covered just enter <br> your email and we'll send you a 
+               <br>password reset link to regain access <br> to your  account
+      
+              </p>
+             
+              <div >
+                  <h2>{{Show_pass}}</h2>
+                <form (ngSubmit)="onSubmit3(form3)" #form3="ngForm">
+           
+              <p  style="text-align: center;" class="box_1">
+                <i class="fa fa-envelope-o icon" style="font-size:36px"></i>
+                <input type="password" placeholder="Password" id="fld_1"  name="pass" ngModel #admin_email />
+              </p>
+              <p  style="text-align: center;margin-top: 20px !important;" class="box_1">
+                  <i class="fa fa-envelope-o icon" style="font-size:36px;"></i>
+                  <input type="password" placeholder="Confirm Password" id="fld_1"  name="c_pass" ngModel #admin_email />
+        
+                
+                </p>
+              <p style="text-align: center;">
+              <button mat-raised-button color="primary" id="reg_btn" type="submit">Update Password</button>
+        
+                </p>
+                </form>
+            </div>
+         
+            </div>
+          </div>

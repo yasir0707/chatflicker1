@@ -1,0 +1,18 @@
+
+
+
+/*  Card styling */
+#crd_title{
+    color: black;
+    font-size: 17px;
+  }
+  #crd_txt{
+    font-size: 14px;
+      font-family: system-ui;
+      padding: 10px 0px 5px 0px;
+      color: black;
+  }
+  #txt_agnt{
+    color: black;
+    font-size: 20px;
+  }

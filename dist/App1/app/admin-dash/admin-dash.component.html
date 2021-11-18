@@ -1,0 +1,110 @@
+<mat-drawer-container class="example-container" autosize>
+    <mat-drawer #drawer class="example-sidenav" mode="side">
+  <div>
+    <img src="assets/img/logo1.png" id="lg_img" />
+  </div>
+  <div style="padding-left: 30px;">
+    <div id="slct">
+      <div   [ngClass]="[signal ? 'green' : 'red']">
+   
+      </div>
+  <mat-form-field  id="frm_field" floatLabel="never">
+    <mat-label>{{checkStatus}}</mat-label>
+    <mat-select>
+      <mat-option value="option1" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;" (click)="online()">Online</mat-option>
+      <mat-option value="option3" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;" (click)="offline()">Offline</mat-option>
+    </mat-select>
+  </mat-form-field>
+    <!-- <select id="slct1">
+      <option id="slct_opt">{{checkStatus}}</option>
+      <option id="slct_opt" value="1">Online</option>
+      <option id="slct_opt" value="2">Offline</option>
+    </select> -->
+  </div>
+ 
+</div>
+<div class="scrl">
+      
+<mat-list role="list">
+        <a routerLink="/admin/home" (click)="hm_row = 'Home'"><mat-list-item role="listitem" id="home" ><mat-icon id="lst1_icon">home</mat-icon><p id="lst1">Home</p></mat-list-item></a>
+        <a routerLink="/admin/visitor"  (click)="hm_row = 'Visitor'"><mat-list-item role="listitem" id="visit" ><mat-icon id="lst1_icon">perm_contact_calendar</mat-icon><p id="lst1">Visitors</p></mat-list-item></a>
+        <a routerLink="/admin/adminuser" (click)="hm_row = 'Conservation'"><mat-list-item role="listitem" id="history"><mat-icon id="lst1_icon">history</mat-icon><p id="lst1">Conservation</p ></mat-list-item></a>
+          <a routerLink="/admin/trigger" (click)="hm_row = 'Conservation'"><mat-list-item role="listitem" id="history"><mat-icon id="lst1_icon">history</mat-icon><p id="lst1">Trigger</p ></mat-list-item></a>
+  
+          
+        
+                  
+          <mat-list-item role="listitem" id="setting" [hidden]="agnt_shw" [ngClass]="[dsplay ? 'st_bg' : 'st_bg1']">	<mat-icon id="lst1_icon">settings</mat-icon>
+            <ul id="myUL" >
+              <li ><span (click)="display()" >Setting<i [hidden]="dsplay" class="fa fa-chevron-right" id="st_icon"></i><i [hidden]="!dsplay" class="fa fa-chevron-down" id="st_icon"></i></span>
+                <!-- <ul [ngClass]="[dsplay ? 'active' : 'nested']" >
+                  <li>Water</li>
+                  <li>Coffee</li>
+                  </ul> -->
+                  </li>
+                  </ul>
+            
+          </mat-list-item>
+          <div [ngClass]="[dsplay ? 'active' : 'nested']">
+            <a routerLink="/admin/trigger"  (click)="hm_row = 'Trigger'"> <mat-list-item role="listitem" id="setting_drp" ><p>Trigger</p></mat-list-item></a>
+            <a routerLink="/admin/role"  (click)="hm_row = 'Role'"><mat-list-item role="listitem" id="setting_drp" >	<p >Role</p></mat-list-item></a>
+            <a routerLink="/admin/agent" [hidden]="agnt_shw" (click)="hm_row = 'Agent'"><mat-list-item role="listitem" id="setting_drp" >	<p >Agent</p></mat-list-item></a>
+        </div>
+        <a routerLink="/adminchat"  (click)="hm_row = true"><mat-list-item role="listitem" id="setting">	<mat-icon id="lst1_icon">settings</mat-icon><p id="lst1">Admin Chat</p></mat-list-item></a>
+       
+
+
+        <!-- <button mat-button [matMenuTriggerFor]="menu">Admin</button>
+        <mat-menu #menu="matMenu">
+          <a routerLink="/register"><button mat-menu-item>Add </button></a>
+          <a routerLink="/show"><button mat-menu-item>Show</button></a>
+        </mat-menu>
+  
+        <button mat-button [matMenuTriggerFor]="menu1">User</button>
+        <mat-menu #menu1="matMenu">
+          <a routerLink="/adduser"><button mat-menu-item>Message </button></a>
+          <a routerLink="/showuser"><button mat-menu-item>Show</button></a>
+        </mat-menu> -->
+      </mat-list>
+
+</div>
+      <div id="lg_bt">
+        <img src="assets/img/lg1.png" id="lg_bt_img" />
+        <p id="lg_bt_txt">
+            0 Requests
+        </p>
+      </div>
+      
+    </mat-drawer>
+  
+    <div class="example-sidenav-content">
+      <div class="col-lg-12">
+        
+       <div class="col-lg-12"> 
+          <button (click)="dsplay_r = !dsplay_r"  mat-mini-fab color="primary" style="margin-left: -35px; background-color: #283ee1;"  mat-icon-button aria-label="Example icon button with a vertical three dot icon"  (click)="drawer.toggle()"  opened="true">
+            <mat-icon [hidden]="dsplay_r" style="padding-left: 10px;">chevron_right</mat-icon><mat-icon [hidden]="!dsplay_r" style="padding-left: 5px;">chevron_left</mat-icon>
+          </button>
+       <div style="color: black;" class="col-lg-3" id="hd_txt">{{hm_row}}</div>
+        
+          
+            <div class="mnu_btn">
+              <button   mat-raised-button  [matMenuTriggerFor]="beforeMenu"><mat-icon> person_pin</mat-icon></button>
+  <mat-menu #beforeMenu="matMenu" xPosition="before">
+    <button mat-menu-item><mat-icon> person_pin</mat-icon>{{str}}</button>
+    <button mat-menu-item>Help & Feedback</button>
+    <button mat-menu-item>Privacy Policy</button>
+    <button mat-menu-item>{{str}}</button>
+    <button mat-menu-item (click)="logout()">Logout</button>
+  </mat-menu>
+</div>
+</div>
+     <router-outlet></router-outlet>
+      </div>
+      <br>
+    <div>     
+  
+  </div>
+  
+    </div>
+  
+  </mat-drawer-container>

@@ -1,0 +1,36 @@
+
+
+ <div class="row" >
+  <div class="col-lg-4 col-md-4 col-sm-3 col-xs-2"></div>
+    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-8">
+      <h1 id="lg_h1">
+          Verify Email
+      </h1>
+      <p id="lg_txt1">
+       We've got you covered just enter <br> your email and we'll send you a 
+       <br>password reset link to regain access <br> to your  account
+
+      </p>
+     
+      <div >
+        <div class="alert alert-danger reg_show" *ngIf="show_verify" role="alert">
+          {{show_verify}}
+          </div>
+<form (ngSubmit)="onSubmit(form)" #form="ngForm" style="padding-top: 20px !important;">
+  <p  style="text-align: center;" class="box_1">
+    <i class="fa fa-envelope-o icon" style="font-size:36px"></i>
+    <input type="number" placeholder="Verify Code" id="fld_1"  name="verify_code" ngModel #admin_code />
+
+  
+  </p>
+    <p style="text-align: center;">
+        <button mat-raised-button color="primary" id="reg_btn"  type="submit">REGISTER</button>
+  
+          </p>
+    </form>
+    </div>
+  
+<p style="color: rgb(167, 140, 140);text-align: center;">Back to <span style="color: #041193 !important; font-size: 15px;"><a routerLink="/register" style="color: #041193 !important; font-size: 15px;">Register</a></span></p>
+
+    </div>
+  </div>

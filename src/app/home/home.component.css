@@ -1,0 +1,49 @@
+.example-container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: white;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+
+
+.example-sidenav {
+
+  background-color: #041193;
+}
+#home{
+  width: 200px;
+  text-align: center;
+  
+}
+#home:hover{
+  background-color: #2b3ce1;
+}
+#visit{
+  width: 200px;
+}
+#visit:hover{
+  background-color: #2b3ce1;
+}
+history{
+  width: 200px;
+}
+#history:hover{
+  background-color: #2b3ce1;
+}
+#setting{
+  width: 200px;
+}
+#setting:hover{
+  background-color: #2b3ce1;
+}
+#search{
+  height: 40px;
+  width: 180px;
+  border-radius: 15px;
+  padding-left: 20px;
+}
+
+#search_input{
+  border-radius: 15px;
+}
